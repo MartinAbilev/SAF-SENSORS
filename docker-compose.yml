@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./sensor_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./sensor_api:/app
+
+  frontend:
+    build: ./sensor-frontend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./sensor-frontend:/app
+    environment:
+      - VUE_APP_BACKEND_URL=http://backend:8000/api/

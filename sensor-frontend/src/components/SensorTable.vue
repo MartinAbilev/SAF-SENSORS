@@ -71,7 +71,11 @@ export default {
 
             const sensorType = this.sensorTypes[sensor.type];
 
-            sensor.name = '' + sensorType[variant].name
+            let sname = sensor.name;
+            if (sensorType[variant])
+            sname = sensorType[variant].name || sensor.name;
+            if (sensor.name != undefined)
+            sensor.name = sname;
 
             return {
               ...sensor,

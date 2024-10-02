@@ -54,7 +54,8 @@ export default {
   methods: {
     fetchSensorData() {
       // Assuming the API returns both sensors and sensor_types
-      axios.get('http://localhost:8000/api/sensors/')
+      axios.get('http://77.38.218.82:3004/api/sensors/')
+      // axios.get('http://localhost:8000/api/sensors/')
         .then(response => {
           console.log("API response:", response.data);
           this.sensors = Object.values(response.data.sensors || {}); // Convert to array or fallback to empty array
